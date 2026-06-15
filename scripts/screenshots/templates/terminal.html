@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    }
+    .window {
+      width: 900px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,.6);
+    }
+    .titlebar {
+      background: #1e293b;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #334155;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #ef4444; }
+    .dot-y { background: #eab308; }
+    .dot-g { background: #22c55e; }
+    .title { color: #94a3b8; font-size: 13px; margin-left: 8px; }
+    .body {
+      background: #0b1220;
+      padding: 20px 24px;
+      min-height: 360px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .prompt { color: #2dd4bf; }
+    .cmd { color: #f8fafc; }
+    .out { color: #94a3b8; margin-top: 12px; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="window">
+    <div class="titlebar">
+      <span class="dot dot-r"></span>
+      <span class="dot dot-y"></span>
+      <span class="dot dot-g"></span>
+      <span class="title">bash — {{TITLE}}</span>
+    </div>
+    <div class="body"><span class="prompt">$ </span><span class="cmd">{{COMMAND}}</span><div class="out">{{OUTPUT}}</div></div>
+  </div>
+</body>
+</html>

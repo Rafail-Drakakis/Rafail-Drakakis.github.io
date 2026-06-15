@@ -1,0 +1,46 @@
+---
+import { skills, languages, interests } from '../data/skills';
+---
+
+<div class="grid gap-8 md:grid-cols-2">
+  {
+    skills.map((group) => (
+      <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-6">
+        <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-teal-400">
+          {group.title}
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {group.items.map((item) => (
+            <span class="rounded-lg bg-slate-800 px-3 py-1.5 text-sm text-slate-300">{item}</span>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<div class="mt-8 grid gap-8 md:grid-cols-2">
+  <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-6">
+    <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-teal-400">Languages</h3>
+    <div class="space-y-3">
+      {
+        languages.map((lang) => (
+          <div>
+            <span class="text-xs font-medium uppercase text-slate-500">{lang.level}</span>
+            <p class="text-slate-300">{lang.items.join(', ')}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-6">
+    <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-teal-400">Interests</h3>
+    <div class="flex flex-wrap gap-2">
+      {
+        interests.map((item) => (
+          <span class="rounded-lg bg-slate-800 px-3 py-1.5 text-sm text-slate-300">{item}</span>
+        ))
+      }
+    </div>
+  </div>
+</div>

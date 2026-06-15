@@ -1,0 +1,21 @@
+{
+  "note": "All 16 portfolio projects have screenshots. Medical uses fixtures/MiniCollection + queryevaluatorGUI.jar.",
+  "projects": [
+    "natural-disaster-classifier",
+    "media-server",
+    "linux-security-suite",
+    "medical-document-retrieval",
+    "coins-collection",
+    "microtcp",
+    "alpha-compiler",
+    "to-do-app",
+    "event-management-system",
+    "reviews-classifier",
+    "linux-shell",
+    "media-downloader",
+    "midus-ordinal-analysis",
+    "sorry-game",
+    "simple-streaming-service",
+    "useful-scripts"
+  ]
+}
