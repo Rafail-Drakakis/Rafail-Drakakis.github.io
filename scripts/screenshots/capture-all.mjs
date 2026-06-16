@@ -249,33 +249,6 @@ async function captureEventManagement() {
   await optimizeImage(raw, slug);
 }
 
-async function captureCoinsCollection() {
-  const slug = 'coins-collection';
-  const raw = rawPath(slug);
-  const backend = repoPath('Coins-collection/backend');
-  const frontend = repoPath('Coins-collection/frontend');
-  await run('npm install --silent', { cwd: backend, timeout: 180000 });
-  await run('npm install --silent', { cwd: frontend, timeout: 180000 });
-  const be = startProcess('npm run dev', { cwd: backend, env: { PORT: '3001' } });
-  const fe = startProcess('npm run dev', { cwd: frontend });
-  await waitForUrl('http://127.0.0.1:5173/', { timeout: 120000 });
-  for (const coin of [
-    { name: 'Athenian Owl', year: 2020, country: 'Greece', country_code: 'GR', denomination: '1€', condition: 'Mint' },
-    { name: 'Armenian Dram', year: 2019, country: 'Armenia', country_code: 'AM', denomination: '100', condition: 'Good' },
-  ]) {
-    await fetch('http://127.0.0.1:3001/api/coins', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(coin),
-    }).catch(() => {});
-  }
-  await captureWebPage({ url: 'http://127.0.0.1:5173/', dest: raw, waitMs: 2500 });
-  killProcess(be);
-  killProcess(fe);
-  await sleep(1000);
-  await optimizeImage(raw, slug);
-}
-
 async function captureMediaServer() {
   const slug = 'media-server';
   const raw = rawPath(slug);
@@ -361,7 +334,6 @@ const HANDLERS = [
   ['sorry-game', captureSorryGame],
   ['to-do-app', captureTodoApp],
   ['event-management-system', captureEventManagement],
-  ['coins-collection', captureCoinsCollection],
   ['media-server', captureMediaServer],
   ['natural-disaster-classifier', captureNaturalDisasterClassifier],
 ];

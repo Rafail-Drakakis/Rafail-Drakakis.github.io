@@ -1,11 +1,10 @@
 {
-  "note": "All 16 portfolio projects have screenshots. Medical uses fixtures/MiniCollection + queryevaluatorGUI.jar.",
+  "note": "15 portfolio projects have automated screenshot capture. Coin Vault (coins-collection) uses a static image. Medical uses fixtures/MiniCollection + queryevaluatorGUI.jar.",
   "projects": [
     "natural-disaster-classifier",
     "media-server",
     "linux-security-suite",
     "medical-document-retrieval",
-    "coins-collection",
     "microtcp",
     "alpha-compiler",
     "to-do-app",

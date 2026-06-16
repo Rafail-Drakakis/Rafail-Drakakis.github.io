@@ -60,7 +60,6 @@ export const projects: Project[] = [
     title: 'Coin Vault',
     description:
       'Full-stack coin collection app with dashboard analytics, CRUD management, filters, and a world choropleth map.',
-    github: `${GITHUB_BASE}/Coins-collection`,
     tags: ['React', 'TypeScript', 'Express', 'SQLite'],
     featured: true,
     gradient: 'from-amber-500 to-yellow-800',
