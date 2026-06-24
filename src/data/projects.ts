@@ -17,6 +17,15 @@ export function projectImagePath(slug: string): string {
 
 export const projects: Project[] = [
   {
+    slug: 'pylearn',
+    title: 'PyLearn',
+    description:
+      'Classroom-oriented Python learning platform for students aged 12–16 with browser-based coding exercises, Docker-sandboxed execution, progress tracking, and teacher tools for courses, classes, and grading.',
+    tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
+    featured: true,
+    gradient: 'from-yellow-500 to-amber-800',
+  },
+  {
     slug: 'natural-disaster-classifier',
     title: 'Natural Disaster Classifier',
     description:
