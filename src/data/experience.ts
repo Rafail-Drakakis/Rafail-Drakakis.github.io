@@ -24,11 +24,11 @@ export const experience: ExperienceItem[] = [
     company: 'Algorithmics Greece',
     role: 'Python Programming Instructor',
     location: 'Remote',
-    period: 'November 2024 – Present',
+    period: 'November 2024 – June 2026',
     type: 'work',
     bullets: [
-      'Teaching Python to student groups (ages 12–16), focusing on algorithmic thinking and problem-solving.',
-      'Supporting hands-on programming projects while adapting content to diverse learning styles and paces.',
+      'Taught Python to student groups (ages 12–16), focusing on algorithmic thinking and problem-solving.',
+      'Supported hands-on programming projects while adapting content to diverse learning styles and paces.',
     ],
   },
   {
