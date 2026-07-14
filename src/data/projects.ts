@@ -20,10 +20,21 @@ export const projects: Project[] = [
     slug: 'pylearn',
     title: 'PyLearn',
     description:
-      'Classroom-oriented Python learning platform for students aged 12–16 with browser-based coding exercises, Docker-sandboxed execution, progress tracking, and teacher tools for courses, classes, and grading.',
-    tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
+      'Multi-tenant Python teaching platform for coding schools — curriculum authoring, Monaco-based student workspace, Docker-sandboxed code execution, progress tracking, and Stripe billing.',
+    github: `${GITHUB_BASE}/PyLearn`,
+    tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Docker', 'Stripe'],
     featured: true,
     gradient: 'from-yellow-500 to-amber-800',
+  },
+  {
+    slug: 'finora',
+    title: 'Finora',
+    description:
+      'Personal finance SaaS for tracking accounts, transactions, budgets, bills, goals, and investments — with household sharing, CSV/OFX import, Stripe billing, and a superadmin portal.',
+    github: `${GITHUB_BASE}/Finora`,
+    tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Stripe', 'Docker'],
+    featured: true,
+    gradient: 'from-emerald-600 to-teal-900',
   },
   {
     slug: 'natural-disaster-classifier',

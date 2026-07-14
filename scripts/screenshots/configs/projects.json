@@ -1,6 +1,8 @@
 {
-  "note": "15 portfolio projects have automated screenshot capture. Coin Vault (coins-collection) uses a static image. Medical uses fixtures/MiniCollection + queryevaluatorGUI.jar.",
+  "note": "17 portfolio projects have automated screenshot capture. PyLearn and Finora use Docker Compose. Coin Vault (coins-collection) uses a static image. Medical uses fixtures/MiniCollection + queryevaluatorGUI.jar.",
   "projects": [
+    "pylearn",
+    "finora",
     "natural-disaster-classifier",
     "media-server",
     "linux-security-suite",

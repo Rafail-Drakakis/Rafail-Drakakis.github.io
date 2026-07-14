@@ -318,9 +318,54 @@ async function captureNaturalDisasterClassifier() {
   await optimizeImage(raw, slug);
 }
 
+async function capturePyLearn() {
+  const slug = 'pylearn';
+  const raw = rawPath(slug);
+  const cwd = repoPath('PyLearn');
+  try {
+    await run('docker compose --profile dev down 2>/dev/null || true', { cwd, timeout: 120000 });
+    await run('docker compose --profile dev up --build -d', { cwd, timeout: 900000 });
+    await waitForUrl('http://127.0.0.1:8000/api/health', { timeout: 300000 });
+    await waitForUrl('http://127.0.0.1:5173/', { timeout: 180000 });
+    await sleep(3000);
+    await captureWebPage({ url: 'http://127.0.0.1:5173/', dest: raw, waitMs: 2500 });
+    await optimizeImage(raw, slug);
+  } finally {
+    await run('docker compose --profile dev down', { cwd, timeout: 180000 });
+  }
+}
+
+async function captureFinora() {
+  const slug = 'finora';
+  const raw = rawPath(slug);
+  const cwd = repoPath('Finora');
+  try {
+    await run('docker compose down 2>/dev/null || true', { cwd, timeout: 120000 });
+    await run('docker compose up --build -d', { cwd, timeout: 600000 });
+    await waitForUrl('http://127.0.0.1:8000/api/health', { timeout: 300000 });
+    await waitForUrl('http://127.0.0.1:5173/', { timeout: 180000 });
+    await sleep(3000);
+    await captureWebPage({
+      url: 'http://127.0.0.1:5173/demo',
+      dest: raw,
+      waitMs: 2500,
+      actions: async (page) => {
+        await page.click('[data-testid="demo-enter"]');
+        await page.waitForURL('**/app/dashboard', { timeout: 60000 });
+        await page.waitForTimeout(2000);
+      },
+    });
+    await optimizeImage(raw, slug);
+  } finally {
+    await run('docker compose down', { cwd, timeout: 180000 });
+  }
+}
+
 // ─── Main ──────────────────────────────────────────────────────────────────
 
 const HANDLERS = [
+  ['pylearn', capturePyLearn],
+  ['finora', captureFinora],
   ['linux-security-suite', captureLinuxSecuritySuite],
   ['microtcp', captureMicrotcp],
   ['alpha-compiler', captureAlphaCompiler],
