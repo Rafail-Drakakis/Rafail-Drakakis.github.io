@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   description: string;
   github?: string;
+  url?: string;
   tags: string[];
   featured: boolean;
   gradient: string;
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     title: 'PyLearn',
     description:
       'Multi-tenant Python teaching platform for coding schools — curriculum authoring, Monaco-based student workspace, Docker-sandboxed code execution, progress tracking, and Stripe billing.',
+    url: 'https://pylearn.gr',
     tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Docker', 'Stripe'],
     featured: true,
     gradient: 'from-yellow-500 to-amber-800',
