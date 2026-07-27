@@ -361,11 +361,28 @@ async function captureFinora() {
   }
 }
 
+async function captureShortForge() {
+  const slug = 'shortforge';
+  const raw = rawPath(slug);
+  const cwd = repoPath('ShortForge');
+  try {
+    await run('docker compose down 2>/dev/null || true', { cwd, timeout: 120000 });
+    await run('docker compose up --build -d', { cwd, timeout: 600000 });
+    await waitForUrl('http://127.0.0.1:7860/api/status', { timeout: 300000 });
+    await sleep(2000);
+    await captureWebPage({ url: 'http://127.0.0.1:7860/', dest: raw, waitMs: 2500 });
+    await optimizeImage(raw, slug);
+  } finally {
+    await run('docker compose down', { cwd, timeout: 180000 });
+  }
+}
+
 // ─── Main ──────────────────────────────────────────────────────────────────
 
 const HANDLERS = [
   ['pylearn', capturePyLearn],
   ['finora', captureFinora],
+  ['shortforge', captureShortForge],
   ['linux-security-suite', captureLinuxSecuritySuite],
   ['microtcp', captureMicrotcp],
   ['alpha-compiler', captureAlphaCompiler],

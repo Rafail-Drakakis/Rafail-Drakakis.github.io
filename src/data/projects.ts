@@ -37,6 +37,15 @@ export const projects: Project[] = [
     gradient: 'from-emerald-600 to-teal-900',
   },
   {
+    slug: 'shortforge',
+    title: 'ShortForge',
+    description:
+      'YouTube Shorts generator SaaS — paste a narration script and get vertical video with Piper TTS voiceover, kinetic captions, Pexels B-roll, and ducked music, plus auth, credits, and Stripe billing.',
+    tags: ['Python', 'FastAPI', 'MoviePy', 'Piper TTS', 'Stripe', 'Docker'],
+    featured: true,
+    gradient: 'from-blue-600 to-indigo-950',
+  },
+  {
     slug: 'natural-disaster-classifier',
     title: 'Natural Disaster Classifier',
     description:
